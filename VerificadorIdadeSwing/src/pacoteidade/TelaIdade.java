@@ -122,10 +122,17 @@ public class TelaIdade extends javax.swing.JFrame {
         int year = cal.get(Calendar.YEAR);
         int idade = year - ano;
         lblIdade.setText(Integer.toString(idade));
-        String sit = ((idade>=16 && idade<18) || (idade>70)) ? "Opcional":"Obrigatório";
-        lblSituacao.setText(sit);
-        
-        
+        if (idade<16) {
+            lblSituacao.setText("Não Vota");
+        } else {
+            if ((idade>=16 && idade<18) || (idade>70)) {
+                lblSituacao.setText("Opcional");
+            } else {
+                lblSituacao.setText("Obrigatório");
+            }
+        }
+             
+    
     }//GEN-LAST:event_btnCalcActionPerformed
 
     private void txtAnoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnoActionPerformed
